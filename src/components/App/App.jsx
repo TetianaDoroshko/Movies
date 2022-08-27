@@ -2,7 +2,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Container } from './App.styled';
 import { AppBar } from 'components/AppBar/AppBar';
-import { Loader } from './App.styled';
 // import Home from 'pages/Home/Home';
 // import Movies from 'pages/Movies/Movies';
 // import MovieDetails from 'pages/MovieDetails/MovieDetails';

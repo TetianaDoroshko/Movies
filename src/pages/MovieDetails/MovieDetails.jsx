@@ -11,10 +11,9 @@ import { Oval } from 'react-loader-spinner';
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
+  const [goBackLink, setGoBackLink] = useState(useLocation());
 
   const { movieId } = useParams();
-
-  const location = useLocation();
 
   useEffect(() => {
     getMovieById(movieId)
@@ -30,7 +29,7 @@ const MovieDetails = () => {
 
   return (
     <Main>
-      <LinkBack to={location?.state?.from ?? '/'}>&#10229; Go back</LinkBack>
+      <LinkBack to={goBackLink?.state?.from ?? '/'}>&#10229; Go back</LinkBack>
       {movie && <MovieCard movie={movie} />}
       {error && <WarningBox>{error}</WarningBox>}
       <AddNavigation />

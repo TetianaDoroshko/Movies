@@ -7,6 +7,7 @@ import {
   SubTitle,
   GenresTitle,
 } from './MovieCard.styled';
+import poster from 'images/poster.png';
 
 export const MovieCard = ({ movie }) => {
   const { poster_path, genres, overview, title, vote_average, release_date } =
@@ -15,7 +16,9 @@ export const MovieCard = ({ movie }) => {
   return (
     <Card>
       <img
-        src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+        src={
+          poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : poster
+        }
         alt={title}
         width="300"
       />
