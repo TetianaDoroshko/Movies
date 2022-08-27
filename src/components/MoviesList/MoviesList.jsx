@@ -1,15 +1,21 @@
+import PropTypes from 'prop-types';
 import { ItemsLink } from './MoviesList.styled';
 
-export const MoviesList = ({ items }) => {
+export const MoviesList = ({ items, location }) => {
   return (
     <ul>
-      {items.map(movie => (
-        <li key={movie.id}>
-          <ItemsLink to={`/movies/${movie.id}`}>
-            {movie.title ?? movie.name}
+      {items.map(item => (
+        <li key={item.id}>
+          <ItemsLink to={`/movies/${item.id}`} state={{ from: location }}>
+            {item.title ?? item.name}
           </ItemsLink>
         </li>
       ))}
     </ul>
   );
+};
+
+MoviesList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object),
+  location: PropTypes.object,
 };

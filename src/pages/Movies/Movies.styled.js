@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
-// export const ItemsLink = styled(NavLink)`
-
-// `;
+export const WarningBox = styled.p`
+  padding: 20px 0;
+  font-size: 20px;
+`;

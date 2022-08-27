@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif ;
+    /* font-family: Arial, Helvetica, sans-serif ; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

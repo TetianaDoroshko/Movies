@@ -38,3 +38,60 @@ export const getSearchMovies = async query => {
     return Promise.reject('Request was failed. Please, try again.');
   }
 };
+
+export const getMovieById = async id => {
+  try {
+    const response = await fetch(
+      `${API_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`
+    );
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      const errorMessage = await response.json();
+      console.log('error in api', errorMessage.status_message);
+      return Promise.reject(errorMessage.status_message);
+    }
+  } catch (error) {
+    console.log('error in catch api', error);
+    return Promise.reject('Request was failed. Please, try again.');
+  }
+};
+
+export const getCastInfo = async id => {
+  try {
+    const response = await fetch(
+      `${API_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+    );
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      const errorMessage = await response.json();
+      console.log('error in api', errorMessage.status_message);
+      return Promise.reject(errorMessage.status_message);
+    }
+  } catch (error) {
+    console.log('error in catch api', error);
+    return Promise.reject('Request was failed. Please, try again.');
+  }
+};
+
+export const getReviews = async id => {
+  try {
+    const response = await fetch(
+      `${API_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`
+    );
+    if (response.ok) {
+      const data = await response.json();
+      return data.results;
+    } else {
+      const errorMessage = await response.json();
+      console.log('error in api', errorMessage.status_message);
+      return Promise.reject(errorMessage.status_message);
+    }
+  } catch (error) {
+    console.log('error in catch api', error);
+    return Promise.reject('Request was failed. Please, try again.');
+  }
+};
