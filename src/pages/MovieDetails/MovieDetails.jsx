@@ -11,7 +11,7 @@ import { Oval } from 'react-loader-spinner';
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
-  const [goBackLink, setGoBackLink] = useState(useLocation());
+  const [goBackLink] = useState(useLocation());
 
   const { movieId } = useParams();
 
