@@ -1,20 +1,32 @@
 import { getApiKey } from 'redux/authSlice';
 import { useDispatch } from 'react-redux';
+import { setRequestToken } from 'services/authAPI';
+import { getRequestTokenThunk } from 'redux/authThunk';
+import { useNavigate } from 'react-router-dom';
 
 export const UserPage = () => {
   const dispatch = useDispatch();
 
-  const onFormSubmit = e => {
+  const navigate = useNavigate();
+
+  const onFormSubmit = async e => {
     e.preventDefault();
     const apiKey = e.target.elements.token.value;
     dispatch(getApiKey(apiKey));
+    setRequestToken(apiKey);
     e.target.reset();
+    dispatch(getRequestTokenThunk()).then(({ payload }) => {
+      console.log(payload);
+      window.open(
+        `https://www.themoviedb.org/auth/access?request_token=${payload}`
+      );
+    });
   };
 
   return (
     <div>
       <p>
-        Приветствуем в приложении. Чтоб получить польше возможностей рекомендуем
+        Приветствуем в приложении. Чтоб получить больше возможностей рекомендуем
         авторизоваться.
       </p>
       <p>
