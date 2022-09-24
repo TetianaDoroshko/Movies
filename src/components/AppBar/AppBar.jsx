@@ -7,6 +7,7 @@ export const AppBar = () => {
         <Navlink to="/">Home</Navlink>
         <Navlink to="/movies">Movies</Navlink>
       </Navigation>
+      <Navlink to="UserPage">userEmail</Navlink>
     </Header>
   );
 };
